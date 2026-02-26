@@ -355,7 +355,7 @@
                                         <textarea class="form-control bg-light border-secondary"
                                             id="message"
                                             rows="4"
-                                            required></textarea>
+                                            ></textarea>
                                         <div class="invalid-feedback ">
                                             Message Cannot Be Empty
                                         </div>
@@ -424,10 +424,6 @@ form.addEventListener("submit", function (e) {
     }
 
     
-    if (messageInput.value.trim() === "") {
-        messageInput.classList.add("is-invalid");
-        valid = false;
-    }
 
     if (!valid) return;
 
