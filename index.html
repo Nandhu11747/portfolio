@@ -329,7 +329,7 @@
                     <div class="col-lg-8">
                         <div class="card bg-dark opacity-75 border-secondary p-4 rounded">
 
-                            <form id="contactForm" novalidate>
+                            <form id="contactForm" >
                                 <div class="row g-3 text-white">
 
                                     <div class="col-md-6 ">
@@ -355,27 +355,25 @@
                                         <textarea class="form-control bg-light border-secondary"
                                             id="message"
                                             rows="4"
-                                            ></textarea>
+                                            required></textarea>
                                         <div class="invalid-feedback ">
                                             Message Cannot Be Empty
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <button type="submit" id="submitBtn"
+                                        <button type="submit" 
                                                 class="btn btn-primary w-100">
                                             Send Message
                                         </button>
                                     </div>
 
-                                    <div class="col-12">
-                                        <div id="formAlert" class="alert alert-success d-none mt-3">
-                                            Message sent successfully!
-                                        </div>
-                                    </div>
+                                    
                                 </div>
 
                             </form>
+
+
                         </div>
                     </div>
                 </div>
@@ -395,49 +393,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script>
 const form = document.getElementById("contactForm");
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const messageInput = document.getElementById("message");
-const submitBtn = document.getElementById("submitBtn");
-const alertBox = document.getElementById("formAlert");
 
 form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    let valid = true;
-
-   
-    [nameInput, emailInput, messageInput].forEach(input => {
-        input.classList.remove("is-invalid");
-    });
-
-    if (nameInput.value.trim() === "") {
-        nameInput.classList.add("is-invalid");
-        valid = false;
-    }
-
-
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (!emailPattern.test(emailInput.value.trim())) {
-        emailInput.classList.add("is-invalid");
-        valid = false;
-    }
-
-    
-
-    if (!valid) return;
-
-    
-    submitBtn.innerHTML = "Sending...";
-    submitBtn.disabled = true;
-
-    
-    setTimeout(() => {
-        alertBox.classList.remove("d-none");
-        form.reset();
-        submitBtn.innerHTML = "Send Message";
-        submitBtn.disabled = false;
-    }, 1500);
+    this.reset();
+    alert("Message sent seccessfully");
 });
 </script>
 
